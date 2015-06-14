@@ -1,21 +1,24 @@
-<h1>Libraries</h1>
+<h2>Libraries</h2>
 
 <%= link_to 'Add a library', new_library_path %>
-
-<% @libraries.each do |library| %>
-  <div>
-    <hr>
-    <h3><%= library.name %> <small><%= "(#{library.users.count} users joined)" %></small> </h3>
-    <% if @current_user %>
-      <%= button_to "Join", library_users_path(library) %>
-      <%= button_to "Leave", library_users_path(library), method: :delete %>
-    <% end %>
-  </div>
-  <br>
-<% end %>
 <br>
 <% if @current_user %>
   <%= link_to "Back to #{@current_user.first_name}", user_path(@current_user) %>
 <% else %>
   <%= link_to 'Back to Users#index', users_path %>
 <% end %>
+
+<% @libraries.each do |library| %>
+  <div>
+    <hr>
+    <h3><%= library.name %> <small><%= "(#{library.users.count} users joined)" %></small> </h3>
+    <h4><%= library.floor_count %> floors, <%= library.floor_area %> sq. feet</h4>
+    <% if @current_user %>
+      <%= button_to "Join", library_users_path(library) %>
+      <%= button_to "Leave", library_users_path(library), method: :delete %>
+      <%= button_to "Edit", edit_library_path(library), method: :get %>
+    <% end %>
+  </div>
+  <br>
+<% end %>
+<br>

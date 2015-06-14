@@ -1,0 +1,17 @@
+<h2>Edit User</h2>
+
+<%= form_for @user, url: user_path(@user), method: "put" do |f| %>
+  <div>
+    <%= f.text_field :first_name, autofocus: "true" %>
+  </div>
+  <div>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit "Update" %>
+<% end %>

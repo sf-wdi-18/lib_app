@@ -24,6 +24,14 @@ class UsersController < ApplicationController
   end
 
   #
+  # GET /users/:id/edit
+  #
+  def edit
+    @user = User.find(params[:id])
+    render :edit
+  end
+
+  #
   # POST /users
   #
   # No instance variables necessary since not passing along to a view
@@ -31,6 +39,15 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     login(user)
+    redirect_to user_path(user)
+  end
+
+  #
+  # PUT /users/:id
+  #
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
     redirect_to user_path(user)
   end
 

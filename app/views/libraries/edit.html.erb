@@ -1,6 +1,6 @@
-<h2>New library</h2>
+<h2>Edit library</h2>
 
-<%= form_for @library do |f| %>
+<%= form_for @library, method: "put" do |f| %>
   <div>
     <%= f.text_field :name, placeholder: "Name" %>
   </div>
@@ -10,5 +10,5 @@
   <div>
     <%= f.number_field :floor_area, placeholder: "Floor Area" %>
   </div>
-  <%= f.submit 'Add library' %>
+  <%= f.submit 'Update library' %>
 <% end %>

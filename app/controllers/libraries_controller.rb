@@ -22,11 +22,34 @@ class LibrariesController < ApplicationController
   end
 
   #
+  # GET /libraries/:id
+  #
+  def show
+    @library = Library.find(params[:id])
+  end
+
+  #
+  # GET /libraries/:id/edit
+  #
+  def edit
+    @library = Library.find(params[:id])
+  end
+
+  #
   # POST /libraries
   #
   def create
-    @library = Library.create(library_params)
-    redirect_to "/libraries"
+    library = Library.create(library_params)
+    redirect_to library_path(library)
+  end
+
+  #
+  # PUT /libraries/:id
+  #
+  def update
+    library = Library.find(params[:id])
+    library.update(library_params)
+    redirect_to library_path(params[:id])
   end
 
   private

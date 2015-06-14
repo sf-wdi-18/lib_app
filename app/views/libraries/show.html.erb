@@ -1,0 +1,11 @@
+<h2>Library:</h2>
+
+<p><%= @library.name %></p>
+
+<p><%= @library.floor_count%> floors</p>
+
+<p><%= @library.floor_area%> square feet</p>
+
+<%= link_to 'Edit library', edit_library_path(@library) %>
+<br><br>
+<%= link_to "Back to #{current_user.first_name}", user_path(current_user) %>
