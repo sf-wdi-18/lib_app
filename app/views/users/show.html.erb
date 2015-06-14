@@ -1,0 +1,11 @@
+<h3>User:</h3>
+
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+
+<p><%= @user.email %></p>
+
+<%= link_to 'View all libraries', libraries_path %>
+<br><br>
+<%= link_to 'View my libraries', user_libraries_path(@user) %>
+<br><br>
+<%= link_to 'Log out', logout_path %>

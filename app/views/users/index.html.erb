@@ -1,0 +1,21 @@
+<h1>Welcome to Users#index.</h1>
+
+<div>
+There are currently <%= @users.length %> signed up
+</div>
+<br>
+<div>
+  <%= link_to 'View all libraries', libraries_path %>
+</div>
+<br>
+<!-- link_to or button_to?
+link_to default method is GET
+button_to default method is POST
+see docs for other differences -->
+<div>
+  <%= link_to 'Sign up', new_user_path %>
+</div>
+<br>
+<div>
+  <%= link_to 'Log in', login_path %>
+</div>
