@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
   #
   def create
     @user = User.confirm(user_params)
-    binding.pry
     if @user
       login(@user)
       redirect_to "/users/#{@user.id}"
